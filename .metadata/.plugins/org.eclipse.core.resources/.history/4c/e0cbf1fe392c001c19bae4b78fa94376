@@ -1,0 +1,30 @@
+package com.PayBill;
+
+public class BillFactory {
+	
+	public PayBillDbUtil getBillType(String biltype){
+		
+		if(biltype== null) {
+			return null;
+		}
+		if(biltype.equalsIgnoreCase("phonebil")) {
+			
+			return new PayPhoneBillDbUtil(); 
+		}
+		
+		else if(biltype.equalsIgnoreCase("waterbil")) {
+			
+			return new PayWaterBillDbUtil();
+		}
+		
+		else if (biltype.equalsIgnoreCase("electricitybil")) {
+			
+			return new PayElectricityBillDbUtil();
+			
+		}
+		
+		return null;
+		
+	}
+
+}

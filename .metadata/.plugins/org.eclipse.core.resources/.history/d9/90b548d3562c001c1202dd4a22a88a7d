@@ -1,0 +1,10 @@
+package com.PayBill;
+
+public interface PayBillDbUtil {
+	
+	public boolean payBill();
+
+}
+
+
+

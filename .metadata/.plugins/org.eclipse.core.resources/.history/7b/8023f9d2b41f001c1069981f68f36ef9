@@ -1,0 +1,49 @@
+package com.ApplyLeave;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import com.staffManagement.DBconnection;
+
+
+
+public class applyLeaveDbUtill {
+	
+	private static Connection con = null;
+	private static Statement st = null;
+	
+	public static boolean insertLeaveForm (String name , String id , String type , String date , String reason ){
+		
+		boolean isSuccess = false;
+
+	    
+	    try {
+	    	
+	
+	    	
+	    	con = DBconnection.getConnection();
+	    	st = con.createStatement();
+	    	
+	    	String sql = "insert into leaveform values(0,'"+name+"' ,'"+id+"' , '"+type+"' , '"+date+"' , '"+reason+"')";
+	    	int rs = st.executeUpdate(sql);
+	    	
+	    	if(rs > 0 ) {
+	    		isSuccess = true;
+	    	}else {
+	    		isSuccess = false;
+	    	}
+	    	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    
+	    
+		
+		
+		return isSuccess;
+
+	}
+
+}
